@@ -56,8 +56,8 @@
           		if(xhr.readyState == 4 && xhr.status ==200){
           			let response = xhr.response
           			console.log(response)
-          			if(response.indexOf("Enter a valid email address") != -1 || 
-          			response.indexOf("Email and message are required!")){
+          			if(response.indexOf("Email and message are required!") != -1 || 
+          			response.indexOf("Enter a valid email address!")|| response.indexOf("Sorry,Not submitted!")){
           				statusTxt.style.color = "red"
           			}else{
           				form.reset()
