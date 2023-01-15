@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<form action ="#">
+		<h1>Fill this form</h1>
+		<div class="input">
+			<label>Enter Name:</label><br>
+			<input type="text" name="name">
+		</div>
+
+		<div class="input">
+			<label>Enter Email:</label><br>
+			<input type="text" name="email">
+		</div>
+
+		<div class="input">
+			<label>Enter Phone No:</label><br>
+			<input type="text" name="phone">
+		</div>
+
+
+        <div class="input">
+			<label>Enter Website:</label><br>
+			<input type="text" name="website">
+		</div>
+
+		<div class="input">
+			<label>Enter Message:</label><br>
+			<textarea name="textarea"></textarea>
+		</div>
+
+		<button class="submit">Submit</button> <span id ="statustxt">Sending message...</span>
+
+	</form>
+
+
+          <script type="text/javascript">
+          	const form = document.querySelector("form")
+          	const statusTxt = document.querySelector("#statustxt")
+
+          	form.onsubmit =(e)=>{
+          		e.preventDefault()
+          		statusTxt.style.display ="block"
+          	
+
+          	let xhr = new XMLHttpRequest()
+          	xhr.open("POST", "message.php", true)
+          	xhr.onload =()=>{
+          		if(xhr.readyState == 4 && xhr.status ==200){
+          			let response = xhr.response
+          			console.log(response)
+          			if(response.indexOf("Enter a valid email address") != -1 || 
+          			response.indexOf("Email and message are required!")){
+          				statusTxt.style.color = "red"
+          			}else{
+          				form.reset()
+          				setIntervar(close,3000)
+
+          				 function close(){
+          	statusTxt.style.display ="block"
+          }
+	
+          			}
+          			statusTxt.innerText = response
+          		}
+          	}
+          	let formData = new FormData(form)
+          	xhr.send(formData)
+          }
+
+            </script>
+
+
+
+
+
+</body>
+</html>
