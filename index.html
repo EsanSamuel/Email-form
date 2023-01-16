@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<form action ="#" method="get">
+	<form action ="#">
 		<h1>Fill this form</h1>
 		<div class="input">
 			<label>Enter Name:</label><br>
@@ -51,7 +51,7 @@
           	
 
           	let xhr = new XMLHttpRequest()
-          	xhr.open("GET", "message.php", true)
+          	xhr.open("POST", "message.php", true)
           	xhr.onload =()=>{
           		if(xhr.readyState == 4 && xhr.status ==200){
           			let response = xhr.response
