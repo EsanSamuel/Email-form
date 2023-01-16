@@ -2,11 +2,11 @@
 
 $name = $email = $phone = $website = $textarea ="";
 
-$name = isset(($_GET['name']));
-$email = isset(($_GET['email']));
-$phone = isset(($_GET['phone']));
-$website = isset(($_GET['website']));
-$textarea = isset(($_GET['textarea']));
+$name = isset(($_POST['name']));
+$email = isset(($_POST['email']));
+$phone = isset(($_POST['phone']));
+$website = isset(($_POST['website']));
+$textarea = isset(($_POST['textarea']));
 
 if(!empty($email) && !empty($textarea)){
 
